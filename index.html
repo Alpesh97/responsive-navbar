@@ -1,0 +1,98 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>responsive nav</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=No">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="header-menu">
+                <div class="hamburg-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav>
+                    <ul class="nav-list">
+                        <li><a href="#" title="Home">Home</a></li>
+                        <li class="has-sub-menu"><a href="https://css-tricks.com/return-false-and-prevent-default/" title="Men">Men</a>
+                            <ul class="sub-menu">
+                                <li><a href="#" title="Shirt">Shirt</a></li>
+                                <li><a href="#" title="T-Shirt">T-Shirt</a></li>
+                                <li><a href="#" title="Jeans">Jeans</a></li>
+                                <li><a href="#" title="Purse">Purse</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-sub-menu"><a href="https://css-tricks.com/return-false-and-prevent-default/" title="Women">woMen</a>
+                            <ul class="sub-menu">
+                                <li><a href="#" title="Shirt">Shirt</a></li>
+                                <li><a href="#" title="T-Shirt">T-Shirt</a></li>
+                                <li><a href="#" title="Jeans">Jeans</a></li>
+                                <li><a href="#" title="Purse">Purse</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Lookbook">lookbook</a></li>
+                        <li><a href="#" title="About">about</a></li>
+                        <li><a href="#" title="Blog">blog</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="search-box">
+                <div class="search-box-wrapper">
+                    <div class="container">
+                        <form>
+                            <div class="form-element">
+                                <span class="underline"></span>
+                                <input type="text" id="search-bar" class="form-control search-input" placeholder="Find....">
+                            </div>
+                        </form>
+                        <span class="close-search">
+                            <img src="images/close-ic.svg" alt="close-ic">
+                        </span>
+                    </div>
+                    <div class="content-wrapper">
+                        <div class="container">
+                            <h1>What is Lorem Ipsum?</h1>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="open-search-bar">
+                <img src="images/search-icon.svg" alt="search-icon">
+            </span>
+        </header>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/general.js"></script>
+    <script type="text/javascript">
+        $(".open-search-bar").click(function() {
+            $(".search-box").addClass("open-search");
+            $("#search-bar").focus();
+        });
+        $(".close-search").click(function() {
+            $(".search-box").removeClass("open-search");
+        });
+
+        // for underline
+        $('#search-bar').keyup(function(event) { 
+            var text = $('#search-bar').val();
+            $('.underline').text(text);
+        });
+
+        //for disable search on enter
+        $(document).on( 'keypress', '.form-element', function (e) {
+            var code = e.keyCode || e.which;
+            if ( code == 13 && jQuery( e.target ).is( 'textarea,input[type="submit"],input[type="button"],input[type="text"]' )) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+</body>
+
+</html>
